@@ -1,18 +1,18 @@
 {
-    "date": "2017-03-23",
+    "date": "2022-05-23",
     "desc": "Read SOAP XML messages in HTTP request's body and expose fields",
     "github": {
         "branches": {
             "4.1": "master",
             "5.0": "master"
         },
+        "doc_path": "README.md",
         "project": "libvmod-soap",
         "user": "thomsonreuters",
-        "vcc_path": "src/vmod_soap.vcc",
-        "doc_path": "README.md"
+        "vcc_path": "src/vmod_soap.vcc"
     },
     "license": "BSD 2-Clause",
+    "maintainer": "jonathan.huot@thomsonreuters.com",
     "name": "soap",
-    "status": "development",
-    "maintainer": "jonathan.huot@thomsonreuters.com"
+    "status": "development"
 }

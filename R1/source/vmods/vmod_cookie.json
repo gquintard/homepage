@@ -5,14 +5,15 @@
         "branches": {
             "4.1": "master"
         },
-        "doc_path": "docs/cookie.rst",
+        "doc_path": "docs/vmod_cookie.rst",
         "project": "varnish-modules",
         "user": "varnish",
         "vcc_path": "src/vmod_cookie.vcc"
     },
+    "inactive": true,
     "license": "FreeBSD",
     "name": "cookie",
-    "status": "mature",
+    "status": "included in Varnish-Cache since release 6.4.0",
     "support": [
         "Varnish Software"
     ]

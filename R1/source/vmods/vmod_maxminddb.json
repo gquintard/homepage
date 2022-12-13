@@ -1,9 +1,9 @@
 {
-    "date": "YYYY-MM-DD",
+    "date": "2022-05-23",
     "desc": "Maxmind Geoip",
     "github": {
         "branches": {
-            "4.1": "master"
+            "master": "master"
         },
         "project": "libvmod_maxminddb",
         "user": "simonvik",
@@ -11,5 +11,5 @@
     },
     "license": "FreeBSD",
     "name": "maxminddb",
-    "status": "prototype"
+    "status": "mature"
 }

@@ -10,8 +10,8 @@
         "user": "vimeo",
         "vcc_path": "src/vmod_boltsort.vcc"
     },
+    "inactive": true,
     "license": "FreeBSD",
     "name": "boltsort",
     "status": "mature"
 }
-

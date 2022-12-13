@@ -1,0 +1,65 @@
+.. _VSV00010:
+
+VSV00010 Varnish Request Smuggling Vulnerability
+================================================
+
+Date: 2022-11-08
+
+A request smuggling attack can be performed on Varnish Cache servers by
+requesting that certain headers are made hop-by-hop, preventing the
+Varnish Cache servers from forwarding critical headers to the
+backend. Among the headers that can be filtered this way are both
+`Content-Length` and `Host`, making it possible for an attacker to both
+break the HTTP/1 protocol framing, and bypass request to host routing
+in VCL.
+
+Versions affected
+-----------------
+
+* Varnish Cache releases 7.0.0, 7.0.1, 7.0.2, 7.0.3, 7.1.0, 7.1.1, 7.2.0
+
+Versions not affected
+---------------------
+
+* Varnish Cache 7.1.2 (released 2022-11-08)
+
+* Varnish Cache 7.2.1 (released 2022-11-08)
+
+* All versions of Varnish Cache 6.0 LTS series and Varnish Cache Plus by
+  Varnish Software.
+
+* GitHub Varnish Cache master branch at commit e40007dfc2243fb5b3be9923f1ed22dfebb90002
+
+Mitigation
+----------
+
+If upgrading Varnish is not possible, it is possible to mitigate the
+problem by adding the following snippet at the beginning of the `vcl_recv`
+VCL function::
+
+	sub vcl_recv {
+		# Start of mitigation for VSV00010
+		# Tip: Expand the regular expression token list to allow
+		# additional tokens, e.g.
+		# "(close|keep-alive|te|upgrade|http2-settings|my-header)"
+		if (regsuball(req.http.connection,
+			"(?i)((close|keep-alive|te|upgrade|http2-settings)[ ,]*)", "") !~ "^[ ,]*$") {
+			return (synth(400));
+		}
+	}
+
+This VCL statement would ensure that any attempt to add anything but the
+frequently used tokens like `close`, `keep-alive`, `TE`, `Upgrade` and
+`HTTP2-Settings` in an incoming `Connection`-header would be answered with
+a 400 "Bad request" synthetic response.
+
+Note that some sites may need to allow other header names as tokens in the
+`Connection`-header to function properly. If that is the case for your
+site, add any additional headers needed like the commented tip suggests.
+
+Credits
+-------
+
+This problem was discovered and reported to us by Martin van Kervel
+Smedshammer, Graduate Student at the University of Oslo. We wish to thank
+him for the responsible disclosure.

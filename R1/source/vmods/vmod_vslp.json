@@ -1,19 +1,20 @@
 {
     "date": "2016-04-21",
     "desc": "VSLP (StateLess Persistence) aka shard",
+    "inactive": true,
     "license": "FreeBSD",
     "maintainer": "varnish-support@uplex.de",
     "name": "vslp",
     "repos": "https://code.uplex.de/uplex-varnish/libvmod-vslp",
     "rev": {
         "4.0": {
-	    "url_vcc": "https://code.uplex.de/uplex-varnish/libvmod-vslp/blob/4.0/src/vmod_vslp.vcc"
+            "url_vcc": "https://code.uplex.de/uplex-varnish/libvmod-vslp/blob/4.0/src/vmod_vslp.vcc"
         },
         "4.1": {
-	    "url_vcc": "https://code.uplex.de/uplex-varnish/libvmod-vslp/blob/4.1/src/vmod_vslp.vcc"
+            "url_vcc": "https://code.uplex.de/uplex-varnish/libvmod-vslp/blob/4.1/src/vmod_vslp.vcc"
         },
         "master": {
-	    "url_vcc": "https://code.uplex.de/uplex-varnish/libvmod-vslp/blob/master/src/vmod_vslp.vcc"
+            "url_vcc": "https://code.uplex.de/uplex-varnish/libvmod-vslp/blob/master/src/vmod_vslp.vcc"
         }
     },
     "status": "included in Varnish-Cache since release 5.0 as the shard director",

@@ -1,0 +1,21 @@
+{
+    "date": "2021-06-07",
+    "desc": "Detect language based on the accept-language header",
+    "github": {
+        "branches": {
+            "3.0": "master",
+            "4.0": "master",
+            "4.1": "master",
+            "5.2": "master",
+            "6.2": "master"
+        },
+        "doc_path": "README.md",
+        "project": "varnish-vmod-lang",
+        "user": "byteworks-ch",
+        "vcc_path": "src/vmod_lang.vcc"
+    },
+    "license": "Other",
+    "maintainer": "support@byteworks.ch",
+    "name": "lang",
+    "status": "mature"
+}
